@@ -1,0 +1,18 @@
+@import '~bootstrap/scss/bootstrap';
+
+body{
+    background-color: #611818;
+}
+.slogan{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    line-height: 70rem;
+    font-size: 175px;
+}
+.image{
+    height: 70.5rem;
+    width: auto;
+    float: right;
+    object-fit: contain;
+}
