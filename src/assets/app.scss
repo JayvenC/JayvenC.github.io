@@ -7,6 +7,7 @@ $enable-responsive-font-sizes: true;
  .staticContainer{
      background: url('../assets/image.png');
      background-size: cover;
+     display: flex;
  }
  .staticExplore{
      display: flex;
@@ -15,7 +16,7 @@ $enable-responsive-font-sizes: true;
  .exploreContainer{
      margin-top: 30%;
      position: relative;
-     width: auto;
+     width: auto !important;
      align-self: center;
  }
  @keyframes slide-down {
@@ -26,12 +27,22 @@ $enable-responsive-font-sizes: true;
          transform: translateY(0);
      }
  }
+ @keyframes slide-up {
+     from {
+         opacity: 0.2;
+         line-height: 200px;
+     }
+     to {
+         opacity: 1;
+         line-height: 25px;
+     }
+ }
 .slogan{
-     font-size: 15rem;
+     font-size: 14rem;
      color: white;
      opacity: 1;
      font-family: 'Playfair Display', serif;
-     letter-spacing: 0.5px;
+     letter-spacing: 0.7px;
      transition: opacity 0.2s linear;
      animation: slide-down 1s ease-in-out both;
  }
@@ -77,6 +88,8 @@ $enable-responsive-font-sizes: true;
     background: white;
     overflow-y: scroll;
     z-index: 1;
+    animation-duration: 2s;
+    animation-name: slide-up;
 }
 .bodyOfDetails {
     display: flex;
@@ -99,13 +112,15 @@ $enable-responsive-font-sizes: true;
     width: 60%;
     height: 2px;
     display: block;
-    background: linear-gradient(90 deg, #611818, rgba(255, 255, 255, 0)); 
+    background: linear-gradient(90deg, #611818, rgba(105, 38, 38, 0.6)); 
 }
 .bodyDescription {
     line-height: 28px;
     font-size: 16px;
     color: #3f3e3e;
     margin: 10px 0 30px 0;
+    animation-duration: 2s;
+    animation-name: slide-up;
 }
 .readMoreButton {
     background-image: linear-gradient(90deg, #611818 0%, #ae7562 100%);
@@ -114,13 +129,15 @@ $enable-responsive-font-sizes: true;
     line-height: 52px;
     letter-spacing: 4px;
     color: white;
-    width: 60px;
+    width: 60%;
     text-align: center;
     text-transform: uppercase;
     border: 1px solid #7c7777;
 }
 .details-show {
     opacity: 1;
+    animation-duration: 2s;
+    animation-name: slide-down;
     transition: transform 0.2s cubic-bezier(0.24, 1.4, 0.31, 0.9) 0.5s, opacity 0.4s cubic-bezier(0.24, 1.4, 0.31, 0.9);
 }
 .details-exit {
@@ -140,26 +157,22 @@ $enable-responsive-font-sizes: true;
     transition: max-width 0.5s cubic-bezier(0.24, 1.4, 0.31, 0.9), max-height 0.5s cubic-bezier(0.24, 1.4, 0.31, 0.9), bottom 0.5s cubic-bezier(0.24, 1.4, 0.31, 0.9), border-radius 0.5s cubic-bezier(0.24, 1.4, 0.31, 0.9);
 }
 .socialIconLayout {
-    display: flex;
-}
-.socialIcons {
-    display: flex;
-    align-items: center;
+    position: fixed;
+    text-align: right;
+    right: 0;
+    bottom: 0;
 }
 .socials {
-    margin: 5px 10px;
+    margin-right: 5px 10px;
 }
 @include media-breakpoint-down(xs){
     .staticExplore {
-        background:rgba(255, 255, 255, 0)
+        background:rgba(150, 83, 83, 0)
     }
     .socialIconLayout {
-        background: rgba(255, 255, 255, 0);
+        background: rgba(138, 78, 78, 0);
         align-items: flex-start;
         justify-content: flex-start;
-    }
-    .socialIcons {
-        flex-direction: row;
     }
 }
 @include media-breakpoint-up(sm) {
@@ -177,9 +190,6 @@ $enable-responsive-font-sizes: true;
     .socialIconLayout {
         align-items: flex-end;
         justify-content: flex-end;
-    }
-    .socialIcons {
-        flex-direction: row;
     }
 }
 @include media-breakpoint-up(md) {
@@ -201,8 +211,5 @@ $enable-responsive-font-sizes: true;
     .socialIconLayout {
         align-items: flex-end;
         justify-content: flex-end;
-    }
-    .socialIcons {
-        flex-direction: column;
     }
 }
