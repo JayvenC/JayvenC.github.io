@@ -4,5 +4,5 @@ module.exports = defineConfig({
 })
 
 module.exports = {
-  publicPath: '/udundi-challenge/'
+  publicPath: process.env.NODE_ENV === "production" ? '/udundi-project/' : "/",
 }
